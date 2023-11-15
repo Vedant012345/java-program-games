@@ -1,0 +1,36 @@
+import java.util.Scanner;
+import java.util.Random;
+class Main{
+    public static void main(String[] args) {
+        Scanner reader = new Scanner(System.in);
+        String play ="yes";
+// while loop to determine if we are going to play game again
+        while (play.equals("yes")){
+            Random rand = new Random();
+            int randNun = rand.nextInt(100);
+            int guess = -1;
+            int tries = 0;
+
+            while (guess != randNun){
+                System.out.println("guess a number between from 1 to 100 ");
+                guess = reader.nextInt();
+                tries++;
+
+                if (guess == randNun){
+                    System.out.println("awesome! you guess the number! ");
+                    System.out.println("it only took you " + tries + "guesses !");
+                    System.out.println("would you like to play agian Yes or No ");
+                    play = reader.next().toLowerCase();
+                }
+                else if (guess > randNun){
+                    System.out.println("your guess is to high, try again");
+                }
+                else {
+                    System.out.println("your guess is to low, try again");
+                }
+            }
+            //while loop to check if game is over
+        }
+      reader.close();
+    }
+}
