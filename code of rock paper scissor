@@ -1,0 +1,61 @@
+import java.util.Scanner;
+import java.util.Random;
+public class stonepaper {
+        public static void main(String[] args) {
+                String[] option ={"rock","paper","scissor"};
+                Scanner scanner = new Scanner(System.in);
+                Random random = new Random();
+
+//check condition
+                while (true){
+                        System.out.println(" Its your choise please select from (rock , paper , scissor )or (quit) for Exit game");
+                        //user inpute
+                        String usermove = scanner.nextLine().toLowerCase();
+
+                        //check condition for dermine use want to play game or not
+                        if (usermove.equals("quit")){
+                                System.out.println("thanku for playing game good byy!");
+                                break;
+                        }
+
+                        //select random value from computer
+                        int commoveindex = random.nextInt(3);
+                        String commove = option[commoveindex];
+
+                        //move display
+                        System.out.println("user move is " + usermove);
+                        System.out.println("computer move " + commove);
+
+                        //condition check for result
+                        if (usermove.equals(commove)){
+                                System.out.println("match tie !");
+                        } else if (usermove.equals("rock") && commove.equals("scissor") || usermove.equals("paper") && commove.equals("rock")
+                                || usermove.equals("scissor")&& commove.equals("paper")) {
+                                System.out.println("exelent you win !");
+                        } else if (usermove != "rock" || usermove != "paper" || usermove != "scissor") {
+                                System.out.println("invalied option please check and re-write option ");
+                                break;
+                                
+                        } else {
+                                System.out.println("computer win !");
+                        }
+
+
+
+                        System.out.println("you want play again () yes / no");
+                        String rematch = scanner.nextLine().toLowerCase();
+                        if (rematch.equals("yes")){
+                            System.out.println("Wellcome back please select your move");
+                        } else if (rematch.equals("no")) {
+                            System.out.println("thanku for playing rock paper scissore Good byy!");
+                            break;
+                        }else {
+                            System.out.println("invalied option please select right option");
+                            break;
+                        }
+
+                }
+
+                scanner.close();
+        }
+}
